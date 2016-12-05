@@ -9,10 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
-
-public class MyFirstTest {
-
+public class LoginTest {
     private WebDriver driver;
     private WebDriverWait wait;
 
@@ -23,14 +20,11 @@ public class MyFirstTest {
     }
 
     @Test
-    public void myFirstTest(){
-       // driver.get("http://www.google.com/");
-       // driver.findElement(By.name("q")).sendKeys("webdriver");
-       // driver.findElement(By.name("btnG")).click();
-       // wait.until(titleIs("webdriver - Поиск в Google"));
-
-        driver.get("localhost/litecart/admin/");
-
+    public void loginTest(){
+        driver.get("http://localhost/litecart/admin/login.php");
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("admin");
+        driver.findElement(By.name("login")).click();
     }
 
     @After
@@ -38,5 +32,4 @@ public class MyFirstTest {
         driver.quit();
         driver = null;
     }
-
 }
